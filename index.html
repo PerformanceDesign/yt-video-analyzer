@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Transcript Analyzer Trigger</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>YouTube Transcript Analyzer</h1>
+      <p class="subtitle">
+        Introdu un URL de YouTube și declanșează workflow-ul prin webhook.
+      </p>
+
+      <form id="trigger-form" novalidate>
+        <label for="youtube-url">Link video YouTube</label>
+        <input
+          id="youtube-url"
+          name="youtubeUrl"
+          type="url"
+          placeholder="https://www.youtube.com/watch?v=..."
+          required
+        />
+
+        <label for="webhook-url">Webhook URL</label>
+        <input
+          id="webhook-url"
+          name="webhookUrl"
+          type="url"
+          placeholder="https://your-workflow-host/webhook/youtube-analyzer"
+          required
+        />
+
+        <button id="submit-btn" type="submit">Trimite către workflow</button>
+      </form>
+
+      <section class="panel">
+        <h2>Payload trimis</h2>
+        <pre id="payload-preview">-</pre>
+      </section>
+
+      <section class="panel">
+        <h2>Răspuns webhook</h2>
+        <pre id="response-output">-</pre>
+      </section>
+
+      <p id="status" role="status" aria-live="polite"></p>
+    </main>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
